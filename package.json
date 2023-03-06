@@ -1,0 +1,47 @@
+{
+  "name": "pitch2pdf",
+  "version": "0.0.1",
+  "description": "Download pitch embedded presentation and save as pdf",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "lint": "eslint --ext .ts  src/",
+    "lint:fix": "eslint --ext .ts,.tsx  src/ --fix"
+  },
+  "bin": {
+    "pitch2pdf": "./bin/pitch2pdf"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vane/pitch2pdf.git"
+  },
+  "author": "Michal Szczepanski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vane/pitch2pdf/issues"
+  },
+  "homepage": "https://github.com/vane/pitch2pdf#readme",
+  "dependencies": {
+    "fs-jetpack": "^5.1.0",
+    "image-downloader": "^4.3.0",
+    "minimist": "^1.2.8",
+    "pdf-lib": "^1.17.1",
+    "selenium-webdriver": "^4.8.1"
+  },
+  "devDependencies": {
+    "@types/minimist": "^1.2.2",
+    "@types/node": "^18.14.6",
+    "@types/selenium-webdriver": "^4.1.12",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
+    "eslint": "^8.35.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "pre-commit": "^1.2.2",
+    "process": "^0.11.10",
+    "typescript": "^4.9.5"
+  }
+}

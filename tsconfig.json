@@ -1,0 +1,10 @@
+{
+  "include": ["src/**/*"],
+  "compilerOptions": {
+    "types": ["node"],
+    "target": "es3",
+    "strict": true,
+    "moduleResolution": "node",
+    "outDir": "dist"
+  }
+}
