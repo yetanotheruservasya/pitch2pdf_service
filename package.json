@@ -1,5 +1,5 @@
 {
-  "name": "pitch2pdf",
+  "name": "@szczepano/pitch2pdf",
   "version": "0.0.1",
   "description": "Download pitch embedded presentation and save as pdf",
   "main": "dist/index.js",
