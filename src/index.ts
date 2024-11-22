@@ -1,7 +1,9 @@
 import * as downloader from 'image-downloader';
 import * as jetpack from 'fs-jetpack';
-import * as minimist from 'minimist';
+import minimist from 'minimist';
+import path from 'path';
 import { Builder, By, Locator, WebDriver, WebElement } from 'selenium-webdriver';
+import { ServiceBuilder } from 'selenium-webdriver/chrome';
 import { FSJetpack } from 'fs-jetpack/types';
 import { Options } from 'selenium-webdriver/chrome';
 import { PDFDocument } from 'pdf-lib';
@@ -73,8 +75,17 @@ const saveImage = async (tempDir: FSJetpack, url: string, index: number) => {
 
 const downloadImages = async (pitchUrl: string, tempDir: FSJetpack, skip = false) => {
   if (skip) return;
-  const options = new Options().headless();
-  const driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
+  const options = new Options();
+  options.addArguments('--headless', '--no-sandbox', '--disable-dev-shm-usage');
+
+  const chromedriverPath = require('chromedriver').path;
+  const serviceBuilder = new ServiceBuilder(chromedriverPath);
+  
+  const driver = await new Builder()
+    .forBrowser('chrome')
+    .setChromeOptions(options)
+    .setChromeService(serviceBuilder)
+    .build();
   try {
     console.log('Driver download url', pitchUrl);
     await driver.get(pitchUrl);

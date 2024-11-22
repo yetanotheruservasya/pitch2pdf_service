@@ -1,10 +1,14 @@
 {
-  "include": ["src/**/*"],
   "compilerOptions": {
-    "types": ["node"],
-    "target": "es3",
-    "strict": true,
-    "moduleResolution": "node",
-    "outDir": "dist"
-  }
+    "target": "es6",                // Установите es6 для современных возможностей JS
+    "module": "commonjs",           // Используйте CommonJS, подходящее для Node.js
+    "moduleResolution": "node",     // Пытается разрешать модули по аналогии с Node.js
+    "outDir": "dist",               // Каталог для собранных файлов
+    "esModuleInterop": true,        // Включите поддержку импорта по умолчанию для CommonJS
+    "strict": true,                 // Включите строгую проверку типов
+    "types": ["node"],              // Объявления типов для Node.js
+    "skipLibCheck": true            // Пропускает проверку типов в библиотеках
+  },
+  "include": ["src/**/*"],           // Включите все файлы в папке src
+  "exclude": ["node_modules"]        // Исключите папку node_modules
 }
